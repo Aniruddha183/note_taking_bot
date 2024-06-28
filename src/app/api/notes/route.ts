@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 
-const MONGODB_URI ="mongodb+srv://Aniruddha:1234@aniruddha.djgovzs.mongodb.net/?retryWrites=true&w=majority&appName=Aniruddha";
+const MONGODB_URI =
+  "mongodb+srv://Aniruddha:1234@aniruddha.djgovzs.mongodb.net/?retryWrites=true&w=majority&appName=Aniruddha";
 
 export async function GET() {
   if (!MONGODB_URI) {
@@ -9,11 +10,13 @@ export async function GET() {
       "Please define the MONGODB_URI environment variable inside .env.local"
     );
   }
-  const client = new MongoClient(MONGODB_URI);
+  const client = new MongoClient(MONGODB_URI, {
+    ssl: true,
+  });
   await client.connect();
   const db = client.db("notes_db");
   const collection = db.collection("notes");
-
+  console.log("connection successs");
   const notes = await collection.find().toArray();
 
   await client.close();

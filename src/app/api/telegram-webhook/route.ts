@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 import axios from "axios";
 const TELEGRAM_TOKEN = "7078522339:AAFKaETRWP0-8a6zLff3SCxs5E0fsA3SgrA";
-const MONGODB_URI = "mongodb+srv://Aniruddha:1234@aniruddha.djgovzs.mongodb.net/?retryWrites=true&w=majority&appName=Aniruddha";
+const MONGODB_URI =
+  "mongodb+srv://Aniruddha:1234@aniruddha.djgovzs.mongodb.net/?retryWrites=true&w=majority&appName=Aniruddha";
 
 export async function POST(req: Request) {
   const body = await req.json();
