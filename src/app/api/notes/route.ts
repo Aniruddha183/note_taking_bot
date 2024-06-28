@@ -13,7 +13,7 @@ export async function GET() {
   await client.connect();
   const db = client.db("notes_db");
   const collection = db.collection("notes");
-
+  console.log("connection successs");
   const notes = await collection.find().toArray();
 
   await client.close();
