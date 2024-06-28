@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 
-const MONGODB_URI =
-  "mongodb+srv://Aniruddha:1234@aniruddha.djgovzs.mongodb.net/?retryWrites=true&w=majority&appName=Aniruddha";
+const MONGODB_URI =process.env.MONGODB_URI;
 
 export async function GET() {
   if (!MONGODB_URI) {
